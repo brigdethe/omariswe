@@ -199,21 +199,28 @@ main {
  
  /* ------------------------- Top Bar -------------------------------------------------- */
  
- .nav-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    z-index: 5;
-    transform: translate(0,0) rotate(0.001deg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: calc(var(--gap-padding) / 2) calc(var(--gap-padding) / 2);
- }
- 
- .nav-bar .links-wrap li:last-child {
+.nav-bar {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background: transparent;
+   z-index: 5;
+   transform: translate(0,0) rotate(0.001deg);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: calc(var(--gap-padding) / 2) calc(var(--gap-padding) / 2);
+}
+
+.nav-bar .btn-link .btn-text-inner,
+.nav-bar .btn-link .code-by,
+.nav-bar .btn-link .dennis-span,
+.nav-bar .btn-menu .btn-text-inner {
+   color: #000;
+}
+
+.nav-bar .links-wrap li:last-child {
     display: none;
  }
  
@@ -721,13 +728,13 @@ main {
  
  /* ------------------------- Home - Header -------------------------------------------------- */
  
- .home-header {
-    min-height: 115vh;
-    display: flex;
-    align-items: center;
-    background: var(--color-gray);
-    overflow: hidden;
- }
+.home-header {
+   min-height: 115vh;
+   display: flex;
+   align-items: center;
+   background: var(--color-white);
+   overflow: hidden;
+}
  
  .home-header .personal-image-wrap {
     top: 50%;
@@ -739,20 +746,46 @@ main {
     transform: translate(-50%, -50%);
  }
  
- .home-header .personal-image {
-    top: -10%;
-    width: 100%;
-    height: 110%;
-    background: black;
- }
+.home-header .personal-image {
+   top: -10%;
+   width: 100%;
+   height: 110%;
+   background: var(--color-white);
+}
  
  .home-header .personal-image img {
     width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-40%);
+ }
+
+ .home-header .personal-image .hero-image-desktop {
+    display: none;
+ }
+
+ .home-header .personal-image .hero-image-mobile {
+    display: block;
+ }
+
+ @media screen and (min-width: 1025px) {
+    .home-header .personal-image .hero-image-desktop {
+       display: block;
+       object-fit: cover;
+       width: 100%;
+       left: 0;
+       transform: translateX(0);
+    }
+
+    .home-header .personal-image {
+       background: transparent;
+    }
+
+    .home-header .personal-image .hero-image-mobile {
+       display: none;
+    }
  }
  
  .home-header .big-name {
@@ -779,19 +812,19 @@ main {
     padding: 0 3vw;
  }
  
- .home-header .big-name h1 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    color: var(--color-white);
-    line-height: 1;
-    font-size: 17.5vw;
-    font-size: max(9em, 15vw);
-    white-space: nowrap;
-    pointer-events: none;
-    margin: 0;
-    padding: 0;
- }
+.home-header .big-name h1 {
+   position: relative;
+   display: flex;
+   align-items: center;
+   color: #000;
+   line-height: 1;
+   font-size: 17.5vw;
+   font-size: max(9em, 15vw);
+   white-space: nowrap;
+   pointer-events: none;
+   margin: 0;
+   padding: 0;
+}
  
  .home-header .container {
     width: 100%;
@@ -811,14 +844,19 @@ main {
     position: absolute;
  }
  
- .home-header .row .flex-col .header-above-h4 svg {
-    width: clamp(1.1em, 1.3vw, 1.25em);
- }
- 
- .home-header .row .flex-col h4 {
-    line-height: 1.4;
-    margin-bottom: 0;
- }
+.home-header .row .flex-col .header-above-h4 svg {
+   width: clamp(1.1em, 1.3vw, 1.25em);
+}
+
+.home-header .row .flex-col .header-above-h4 svg g {
+   stroke: #000;
+}
+
+.home-header .row .flex-col h4 {
+   line-height: 1.4;
+   margin-bottom: 0;
+   color: #000;
+}
  
  .home-header .row .flex-col h4 span {
     display: block;
@@ -865,17 +903,18 @@ main {
     display: none;
  }
  
- .home-header .hanger .digital-ball {
-    z-index: 500;
-    position: absolute;
-    right: .9em;
-    left: auto;
-    top: .9em;
-    width: 4.2em;
-    height: 4.2em;
-    transform: translate(0%, 0%);
-    background: transparent;
- }
+.home-header .hanger .digital-ball {
+   z-index: 500;
+   position: absolute;
+   right: .9em;
+   left: auto;
+   top: .9em;
+   width: 4.2em;
+   height: 4.2em;
+   transform: translate(0%, 0%);
+   background: transparent;
+   --color-white: #000;
+}
  
  .home-header .hanger .digital-ball .globe {
     width: 2.5em;
